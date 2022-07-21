@@ -1,4 +1,5 @@
-#!/bin/env python3
+#!/usr/bin/python3
+''' pascal triangle module '''
 
 def pascal_triangle(n):
     ''' generates pascals triangle '''
