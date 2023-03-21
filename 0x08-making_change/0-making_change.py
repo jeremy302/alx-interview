@@ -2,7 +2,7 @@
 ''' making change module '''
 
 def makeChange(coins, total):
-    ''''''
+    ''' calculates minimum number of changes '''
     coins = sorted(coins, reverse=True)
     n = 0
     i = 0
