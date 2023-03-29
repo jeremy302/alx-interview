@@ -4,7 +4,6 @@
 
 def canUnlockAll(boxes):
     ''' checks if all boxes can be unlocked '''
-    
     box_count = len(boxes)
     unlocked = [0 for v in range(box_count)]
     unlocked_count = 0
