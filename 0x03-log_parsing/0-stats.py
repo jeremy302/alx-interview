@@ -33,7 +33,6 @@ def main():
             count += 1
             if count % 10 == 0:
                 print_logs()
-        print_logs()
     except KeyboardInterrupt:
         print_logs()
 
