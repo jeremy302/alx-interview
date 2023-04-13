@@ -13,6 +13,7 @@ def print_logs(status_codes, total_size):
 
 
 def calc(line, total_size, status_codes):
+    ''' calculates metrics '''
     parts = line.strip().split(' ')
     if len(parts) >= 2:
         status_code = parts[-2]
