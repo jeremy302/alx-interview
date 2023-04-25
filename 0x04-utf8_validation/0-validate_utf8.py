@@ -4,7 +4,11 @@
 
 def bin8(n):
     ''' converts a number into an 8-bit zero padded binary '''
-    return bin(n)[2:].zfill(8)
+    b = bin(n)[2:].zfill(8)
+    l = len(b)
+    if l > 8:
+        return b[l - 8:]
+    return b
 
 
 def validUTF8(data):
@@ -23,22 +27,22 @@ def validUTF8(data):
               len(data) >= 2 and
               bin8(data[1]).startswith('10')):
             code_point = int(b[3:] + bin8(data[1])[2:], 2)
-            valid = code_point >= 0x80 and code_pint <= 0x7ff
+            valid = code_point >= 0x80 and code_point <= 0x7ff
             data = data[2:]
         elif (b.startswith('1110') and
               len(data) >= 3 and
               bin8(data[1]).startswith('10') and
               bin8(data[2]).startswith('10')):
             code_point = int(b[4:] + bin8(data[1])[2:] + bin8(data[2])[2:], 2)
-            valid = code_point >= 0x800 and code_pint <= 0xffff
+            valid = code_point >= 0x800 and code_point <= 0xffff
             data = data[3:]
-        elif (b.startswith('11100') and
+        elif (b.startswith('11110') and
               len(data) >= 4 and
               bin8(data[1]).startswith('10') and
               bin8(data[2]).startswith('10') and
               bin8(data[3]).startswith('10')):
             code_point = int(b[5:] + bin8(data[1])[2:] +
                              bin8(data[2])[2:] + bin8(data[3])[2:], 2)
-            valid = code_point >= 0x1000 and code_pint <= 0x10ffff
+            valid = code_point >= 0x1000 and code_point <= 0x10ffff
             data = data[4:]
     return valid
