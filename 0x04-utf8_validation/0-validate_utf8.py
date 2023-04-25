@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 ''' validate utf8 module '''
 
-    
+
 def bin8(n):
     ''' converts a number into an 8-bit zero padded binary '''
     return bin(n)[2:].zfill(8)
+
 
 def validUTF8(data):
     ''' validates if `data` is utf8 encoded '''
