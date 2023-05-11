@@ -27,14 +27,15 @@ def transform_rotate2d(i, j, n):
 def rotate_2d_matrix(matrix):
     ''' rotates a 2d matrix '''
     n = len(matrix)
-    for i in range(0, n - 1):
-        pos = (0, i)
-        npos = transform_rotate2d(*pos, n)
-        carry = matrix[0][i]
-        while npos != (0, i):
-            tmp = matrix[npos[0]][npos[1]]
-            matrix[npos[0]][npos[1]] = carry  # matrix[pos[0]][pos[1]]
-            carry = tmp
-            pos = npos
+    for o in range(0, n//2):
+        for i in range(0, (n - 1) - (o * 2)):
+            pos = (o, i + o)
             npos = transform_rotate2d(*pos, n)
-        matrix[0][i] = carry
+            carry = matrix[o][i + o]
+            while npos != (o, i + o):
+                tmp = matrix[npos[0]][npos[1]]
+                matrix[npos[0]][npos[1]] = carry  # matrix[pos[0]][pos[1]]
+                carry = tmp
+                pos = npos
+                npos = transform_rotate2d(*pos, n)
+            matrix[o][i + o] = carry
