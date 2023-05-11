@@ -6,9 +6,11 @@ def array_cord(x, y, n):
     ''' gets the array coordinate given a cartesian coordinate  '''
     return (n - y - 1, x)
 
+
 def cartesian_cord(i, j, n):
     ''' gets the cartesian coordinate given an array coordinate  '''
     return (j, n - i - 1)
+
 
 def transform_rotate2d(i, j, n):
     ''' rotates an array coordinate by 90° '''
@@ -21,6 +23,7 @@ def transform_rotate2d(i, j, n):
 
     return array_cord(*tcord, n)
 
+
 def rotate_2d_matrix(matrix):
     ''' rotates a 2d matrix '''
     n = len(matrix)
@@ -30,9 +33,8 @@ def rotate_2d_matrix(matrix):
         carry = matrix[0][i]
         while npos != (0, i):
             tmp = matrix[npos[0]][npos[1]]
-            matrix[npos[0]][npos[1]] = carry # matrix[pos[0]][pos[1]]
+            matrix[npos[0]][npos[1]] = carry  # matrix[pos[0]][pos[1]]
             carry = tmp
             pos = npos
             npos = transform_rotate2d(*pos, n)
         matrix[0][i] = carry
-    
