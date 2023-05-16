@@ -3,13 +3,8 @@
 Main file for testing
 """
 
-validUTF8 = __import__('0-validate_utf8').validUTF8
+makeChange = __import__('0-making_change').makeChange
 
-data = [65]
-print(validUTF8(data))
+print(makeChange([1, 2, 25], 37))
 
-data = [80, 121, 116, 104, 111, 110, 32, 105, 115, 32, 99, 111, 111, 108, 33]
-print(validUTF8(data))
-
-data = [229, 65, 127, 256]
-print(validUTF8(data))
+print(makeChange([1256, 54, 48, 16, 102], 1453))

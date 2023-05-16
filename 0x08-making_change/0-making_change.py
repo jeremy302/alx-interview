@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' making change module '''
 
+
 def makeChange(coins, total):
     ''' calculates minimum number of changes '''
     coins = sorted(coins, reverse=True)
@@ -14,4 +15,3 @@ def makeChange(coins, total):
         else:
             i += 1
     return n if i < len(coins) else -1
-        
