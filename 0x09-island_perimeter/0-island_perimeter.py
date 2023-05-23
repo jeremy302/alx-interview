@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' island perimeter module '''
 
+
 def island_perimeter(grid):
     ''' calculates perimeter of an island '''
 
@@ -17,4 +18,3 @@ def island_perimeter(grid):
                 r = (j + 1 >= col_count) or grid[i][j + 1] == 0
                 p += u + d + l + r
     return p
-
