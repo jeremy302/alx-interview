@@ -15,6 +15,8 @@ def playMatch(n):
 
 def isWinner(x, nums):
     ''' plays a full game '''
+    if type(x) is not int or x < 1:
+        return None
     players = {0: 'Maria', 1: 'Ben'}
     wins = {0: 0, 1: 0}
     for num in nums:
